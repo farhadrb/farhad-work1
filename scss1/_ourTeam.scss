@@ -1,0 +1,274 @@
+.ourTeam {
+    @include bg-100vh;
+    background-color: #353B43;
+    padding-bottom: 60px;
+
+    .ourTeam-header {
+        h1 {
+            text-align: center;
+            padding-top: 120px;
+            color: white;
+
+            span {
+                color: $color-blue-light;
+            }
+        }
+
+        .line-parent {
+            display: flex;
+            justify-content: center;
+
+            .line {
+                width: 40px;
+                height: 6px;
+                background-color: $color-blue-light;
+                position: relative;
+
+                &::after {
+                    content: "";
+                    width: 150px;
+                    height: 1px;
+                    background-color: gray;
+                    position: absolute;
+                    bottom: 2.5px;
+                    left: 100%;
+                }
+
+                &::before {
+                    content: "";
+                    width: 150px;
+                    height: 1px;
+                    background-color: gray;
+                    position: absolute;
+                    bottom: 2.5px;
+                    right: 100%;
+                }
+            }
+        }
+    }
+
+    .row {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 0 20px;
+        margin: 0;
+
+        .col-md-3 {
+            .card {
+                background-color: #292F36;
+                position: relative;
+
+                .card-header {
+                    position: relative;
+                    overflow: hidden;
+                    text-align: center;
+                    img {
+                        transition: all, .7s;
+                    }
+
+                    .card-hover {
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%) scale(.5, .5) rotateY(180deg);
+                        opacity: 0;
+                        visibility: hidden;
+                        background-color: #57cacc77;
+                        z-index: 1000;
+                        transition: all, .7s;
+
+                        ul {
+                            li {
+                                a {
+                                    display: inline-block;
+                                    width: 40px;
+                                    height: 40px;
+                                    border: 1px solid white;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    transition: all, .6s;
+
+                                    &:hover {
+                                        text-decoration: none;
+                                        background-color: white;
+                                        border-color: $color-blue-light;
+                                    }
+
+                                    &:hover i {
+                                        color: $color-blue-light;
+                                    }
+
+                                    i {
+                                        color: white;
+                                        padding: 5px;
+                                        font-size: 20px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .card-body {
+                    position: relative;
+                    h5 {
+                        color: rgb(170, 170, 170);
+                    }
+
+                    p {
+                        color: gray;
+                        font-size: 13px;
+                    }
+                    button{
+                        background-color: gray;
+                        color: rgb(232, 232, 232);
+                    }
+                    span{
+                        position: absolute;
+                        bottom: 20px;
+                        right: 20px;
+                        color: gray;
+                    }
+                }
+
+                .card-header.active .card-hover {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translate(-50%, -50%) scale(1, 1) rotateY(0);
+                }
+
+                .card-header.active img {
+                    transform: scale(1.2);
+                }
+
+                .more-parent{
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    background-color: #57caccb1;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    overflow: hidden;
+                    .more-back{
+                        padding-top: 20px;
+                        padding-left: 20px;
+                        i{
+                            font-size: 35px;
+                            &:hover{
+                                color: gray;
+                            }
+                        }
+                    }
+                    .more-body{
+                        transform: translateY(-1000px);
+                        padding-top: 100px;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                       
+                        a{
+                            margin-top: 10px;
+                            &:hover{
+                                text-decoration: none;
+                                i{
+                                    color: gray;
+                                }
+                            }
+                            i{
+                                color: black;
+                                font-size: 40px
+                            }
+                        }
+                    }
+                }
+                .more-parent.active{
+                    animation: moreAnime .3s forwards linear;
+                }
+                .more-parent.active .more-body{
+                    animation: moreAnimeBody .7s forwards linear;
+                }
+                .more-parent.unactive{
+                    animation: moreAnimeUn .3s forwards linear;
+                }
+
+            }
+        }
+    }
+
+}
+
+@keyframes moreAnime{
+    10%{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+    50%{
+        width: 50%;
+        height: 50%;
+        border-radius: 50%;
+    }
+    100%{
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+@keyframes moreAnimeBody{
+    0%{
+        transform: translateY(-1000px);
+    }
+    50%{
+        transform: translateY(-500px);
+    }
+    70%{
+        transform: translateY(0);
+    }
+    80%,90%{
+        transform: translateY(20px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+
+
+@keyframes moreAnimeUn{
+    100%{
+        width: 0;
+        height: 0;
+        border-radius: 0;
+    }
+    50%{
+        width: 50%;
+        height: 50%;
+        border-radius: 50%;
+    }
+    0%{
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
+
+@media only screen and (max-width:768px) {
+    .ourTeam {
+        .row {
+            width: 100%;
+            padding: 10px 10px;
+            margin: 0 auto;
+            .col-md-3{
+                margin: 10px auto;
+            }
+        }
+    }
+
+}

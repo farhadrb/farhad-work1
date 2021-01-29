@@ -1,0 +1,640 @@
+// css menu 
+.nav-parent {
+    width: 100%;
+    height: 70px;
+    background-color: $color-dark-light;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    padding: 0 90px;
+    z-index: 1000;
+    transition: all, .3s;
+
+    .nav-brand {
+        width: 50px;
+        height: 50px;
+    }
+
+    .nav-icon-1 {
+        position: absolute;
+        right: 60px;
+        top: 20px;
+        width: 35px;
+        height: 35px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        a {
+            &:hover {
+                text-decoration: none;
+
+                i {
+                    color: $color-blue-light;
+                }
+            }
+
+            i {
+                color: gray;
+                font-size: 26px;
+                transition: all, .3s;
+            }
+        }
+
+        .shop-hover {
+            position: absolute;
+            top: 180%;
+            right: 0;
+            width: 280px;
+            min-height: 130px;
+            background-color:$color-dark-light;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;           
+            visibility: hidden;
+            opacity: 0;
+            transition: all, .5s;
+
+            span {
+                width: 0;
+                height: 0;
+                border: 10px solid;
+                border-color:$color-dark-light transparent transparent $color-dark-light;
+                position: absolute;
+                top: -10px;
+                right: 10px;
+                transform: rotate(45deg);
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+
+                th {
+                    color:#2b7f80;
+
+                }
+                td{
+                    color: gray;
+                }
+
+                th,
+                td {
+                    text-align: center;
+                }
+
+                .table-img {
+                    width: 50px;
+                    height: 50px;
+                }
+
+                .btn-shop i {
+                    font-size: 16px !important;
+                }
+            }
+        }
+
+        // .shop-hover.active{
+        //     visibility: visible;
+        //     opacity: 1;
+        // }
+    }
+
+    .nav-icon-1.active .shop-hover {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .nav-icon-1.active1 .shop-hover {
+        visibility: visible;
+        opacity: 1;
+    }
+
+
+
+    .nav-icon-2 {
+        position: absolute;
+        right: 100px;
+        top: 20px;
+        width: 35px;
+        height: 35px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all, .5s;
+
+        a {
+            &:hover {
+                text-decoration: none;
+
+                i {
+                    color: $color-blue-light;
+                }
+            }
+
+            i {
+                color: gray;
+                font-size: 25px;
+                transition: all, .3s;
+            }
+        }
+    }
+
+    .menu-icon {
+        width: 35px;
+        height: 35px;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        @include d-flex();
+        visibility: hidden;
+        opacity: 0;
+        border: 1px solid gray;
+        border-radius: 5px;
+
+        .icon {
+            width: 80%;
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+
+            span {
+                display: block;
+                width: 100%;
+                height: 5px;
+                margin: 3px 0;
+                background-color: gray;
+                border-radius: 2px;
+            }
+        }
+
+        // animation for menu-icon
+        .icon.active span:nth-child(1) {
+            animation: span1 .5s forwards;
+        }
+
+        .icon.active span:nth-child(2) {
+            animation: span2 .5s forwards;
+        }
+
+        .icon.active span:nth-child(3) {
+            animation: span3 .5s forwards;
+        }
+
+
+        .icon.unactive span:nth-child(1) {
+            animation: span4 .5s forwards;
+        }
+
+        .icon.unactive span:nth-child(2) {
+            animation: span5 .5s forwards;
+        }
+
+        .icon.unactive span:nth-child(3) {
+            animation: span6 .5s forwards;
+        }
+    }
+
+    .nav {
+        padding-right: 80px;
+
+        .nav-item {
+            .nav-link {
+                font-size: 14px;
+                color: gray;
+                transition: all, .5s;
+
+                &.active {
+                    color: $color-blue-light;
+                }
+
+                &:hover {
+                    color: $color-blue-light;
+                    box-shadow: 0px 0px 8px $color-blue-light;
+                    border-radius: 6px;
+                }
+            }
+        }
+    }
+
+    .overlay {
+        width: 100%;
+        height: 120vh;
+        background-color: rgba(29, 27, 27, 0.535);
+        position: absolute;
+        top: 0;
+        left: 0;
+        visibility: hidden;
+        opacity: 0;
+        transition: all, .5s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .form-parent {
+            width: 400px;
+            height: 500px;
+            background-color: #1D2024;
+            box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            transform: translateY(-1000);
+
+            .form-header {
+                display: flex;
+                position: absolute;
+                top: 10px;
+                left: 20px;
+
+                h5 {
+                    color: $color-blue-light;
+                    position: relative;
+                    padding-right: 10px;
+
+                    &::after {
+                        content: "";
+                        width: 1px;
+                        height: 20px;
+                        background-color: $color-blue-light;
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                    }
+                }
+
+                span {
+                    color: $color-blue-light;
+                    padding-left: 10px
+                }
+
+            }
+
+            .form-back {
+                width: 40px;
+                height: 40px;
+                position: absolute;
+                background-color: #1D2024;
+                box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+                ;
+                top: -7px;
+                right: -7px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                i {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: rgba(29, 207, 213, 0.501);
+                    transition: all, .5s;
+
+                    &:hover {
+                        color: $color-blue-light;
+                    }
+                }
+            }
+
+            form {
+                width: 70%;
+                height: 70%;
+                background-color: #1D2024;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .user {
+                    border-bottom: 1px solid gray;
+                    position: relative;
+                    width: 100%;
+                    height: 30px;
+                    margin-bottom: 30px;
+
+                    label {
+                        color: gray;
+                        position: absolute;
+                        left: 10px;
+                        top: 5px;
+                    }
+
+                    #input-user {
+                        position: absolute;
+                        left: 5px;
+                        top: 5px;
+                        border: 0;
+                        background-color: transparent;
+                        width: 100%;
+                        color: white;
+
+                        &:focus {
+                            border: 0;
+                            outline: 0;
+                        }
+                    }
+                }
+
+                .pass {
+                    border-bottom: 1px solid gray;
+                    position: relative;
+                    width: 100%;
+                    height: 30px;
+                    margin-bottom: 40px;
+
+                    label {
+                        color: gray;
+                        position: absolute;
+                        left: 10px;
+                        top: 5px;
+                    }
+
+                    #input-pass {
+                        position: absolute;
+                        left: 5px;
+                        top: 5px;
+                        border: 0;
+                        background-color: transparent;
+                        width: 100%;
+                        color: white;
+
+                        &:focus {
+                            border: 0;
+                            outline: 0;
+                        }
+                    }
+                }
+
+                .email {
+                    border-bottom: 1px solid gray;
+                    position: relative;
+                    width: 100%;
+                    height: 30px;
+                    margin-bottom: 40px;
+
+                    label {
+                        color: gray;
+                        position: absolute;
+                        left: 10px;
+                        top: 5px;
+                    }
+
+                    #input-email {
+                        position: absolute;
+                        left: 5px;
+                        top: 5px;
+                        border: 0;
+                        background-color: transparent;
+                        width: 100%;
+                        color: white;
+
+                        &:focus {
+                            border: 0;
+                            outline: 0;
+                        }
+                    }
+                }
+
+                label {
+                    transition: all, .5s;
+                }
+
+                .input.bottom label {
+                    top: 120%;
+                    left: 0;
+                    font-size: 10px;
+                    color: $color-blue-light;
+                }
+
+                .input.border-red {
+                    border-color: red;
+                }
+
+                button {
+                    background-color: $color-blue-light;
+                    color: white;
+                }
+
+                span {
+                    color: rgba(65, 172, 170, 0.665);
+                    text-align: center;
+                    margin-top: 20px;
+                    transition: all, .5s;
+
+                    &:hover {
+                        color: $color-blue-light;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+        }
+        .sign-up{
+            width: 350px;
+            height: 40px;
+            background-color: rgb(29, 27, 27);
+            position: absolute;
+            top: 100%;
+            left: 40px;
+            color:gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            span{
+                color: $color-blue-light;
+            }
+        }
+    }
+}
+
+.overlay.show {
+    visibility: visible;
+    opacity: 1;
+}
+.overlay.show .form-parent{
+    animation:kk .5s forwards linear;
+}
+
+
+.nav-parent.active {
+    transform: translateY(-100px);
+}
+
+
+@keyframes span1 {
+    0% {
+        transform: translateY(0);
+    }
+
+    40%,
+    50% {
+        transform: translateY(10px);
+        background-color: $color-blue-light;
+    }
+
+    100% {
+        transform: translateY(10px) rotate(45deg);
+        background-color: $color-blue-light;
+    }
+}
+
+@keyframes span2 {
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+        ;
+    }
+}
+
+@keyframes span3 {
+    0% {
+        transform: translateY(0);
+    }
+
+    40%,
+    50% {
+        transform: translateY(-10px);
+        background-color: $color-blue-light;
+    }
+
+    100% {
+        transform: translateY(-10px) rotate(-45deg);
+        background-color: $color-blue-light;
+    }
+}
+
+
+
+
+
+@keyframes span4 {
+    0% {
+        transform: translateY(10px) rotate(45deg);
+    }
+
+    40%,
+    50% {
+        transform: translateY(10px);
+        background-color: $color-blue-light;
+    }
+
+    100% {
+        transform: translateY(0);
+
+    }
+}
+
+@keyframes span5 {
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        ;
+    }
+}
+
+@keyframes span6 {
+    0% {
+        transform: translateY(-10px) rotate(-45deg);
+    }
+
+    40%,
+    50% {
+        transform: translateY(-10px);
+        background-color: $color-blue-light;
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes kk {
+    0%{
+        transform:translateY(-1000px) ;
+    }
+    50%{
+        transform: translateY(-500px);
+    }
+    70%{
+        transform: translateY(0);
+    }
+    80%{
+        transform: translateY(-40px);
+    }
+    100%{
+        transform:translateY(0)
+    }
+}
+
+
+
+
+
+// start responsive menu
+@media only screen and (max-width: 768px) {
+    .nav-parent {
+        padding: 0 40px;
+        .nav-brand {
+            width: 40px;
+            height: 40px;
+        }
+
+        .menu-icon {
+            visibility: visible;
+            opacity: 1;
+        }
+        .overlay{
+            .form-parent{
+                width: 320px;
+                height: 400px;
+            }
+            .sign-up{
+                width: 240px;
+                height: 40px;
+            }
+        }
+    }
+    .nav-parent.active .nav{
+        transform: translateY(30px);
+        border-top: 10px solid rgb(15, 148, 146);
+    }
+    .nav {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: $color-dark-light;
+        min-height: 0;
+        max-height: 0;
+        overflow: hidden;
+        padding: 10px 20px !important;
+        opacity: 0;
+        visibility: hidden;
+        transition: all, 0.5s;
+    }
+
+    .nav.active {
+        border-top: 1px solid rgb(94, 94, 94);
+        min-height: 200px;
+        max-height: 500px;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+// end responsive menu

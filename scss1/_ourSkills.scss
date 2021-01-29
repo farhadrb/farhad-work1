@@ -1,0 +1,93 @@
+.ourSkills{
+    @include bg-100vh;
+    background-color: $color-dark-light;
+
+    .ourSkills-header {
+        h1 {
+            text-align: center;
+            padding-top: 120px;
+            color: white;
+
+            span {
+                color: $color-blue-light;
+            }
+        }
+
+        .line-parent {
+            display: flex;
+            justify-content: center;
+
+            .line {
+                width: 40px;
+                height: 6px;
+                background-color: $color-blue-light;
+                position: relative;
+
+                &::after {
+                    content: "";
+                    width: 150px;
+                    height: 1px;
+                    background-color: gray;
+                    position: absolute;
+                    bottom: 2.5px;
+                    left: 100%;
+                }
+
+                &::before {
+                    content: "";
+                    width: 150px;
+                    height: 1px;
+                    background-color: gray;
+                    position: absolute;
+                    bottom: 2.5px;
+                    right: 100%;
+                }
+            }
+        }
+    }
+    .ourSkills-row{
+        .col-md-6{
+            .progress-parent{
+                .progressBar-parent{
+                    margin-bottom: 20px;
+                    .progress-head{
+                        font-size: 25px;
+                        color: $color-grey;
+                        margin-bottom: 10px;
+                    }
+                    .progressBar{
+                        width: 80%;
+                        height: 5px;
+                        background-color: rgb(153, 153, 153);
+                        position: relative;
+                        .progressLine{
+                            width: 80%;
+                            height: 5px;
+                            background-color: $color-blue-light;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+            .ourSkills-text{
+                padding: 5px 30px 20px 40px;
+                h2{
+                    color: rgb(160, 160, 160);
+                }
+                p{
+                    color: rgb(95, 95, 95);
+                }
+            }
+        }
+    }
+}
+@media only screen and(max-width:768px){
+    .ourSkills{
+        .ourSkills-row{
+            padding: 10px 10px;
+            margin:0 auto;
+        }
+    }
+}
